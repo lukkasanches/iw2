@@ -21,4 +21,11 @@ td{
     border-radius: 5%;
     text-align: center;
     padding: 5px 8px;
+    width: 50px;
+}
+
+
+.titulo{
+    color: #669edf;
+
 }

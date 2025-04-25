@@ -10,11 +10,11 @@
     <table class="tabela">
         <thead>
                 <tr>
-                    <th>B</th>
-                    <th>I</th>
-                    <th>N</th>
-                    <th>G</th>
-                    <th>O</th>
+                    <th class="titulo">B</th>
+                    <th class="titulo">I</th>
+                    <th class="titulo">N</th>
+                    <th class="titulo">G</th>
+                    <th class="titulo">O</th>
                 </tr>
         </thead>
             <tbody>
@@ -56,13 +56,61 @@
             </tbody>
     </table>
     <br />
-    <button id="botao" onclick="Piscar()" >
-        OuO 
+    <button id="botao" onclick="GerarCartela()">
+        Gerar cartela
     </button>
+
     <script>
+        function GerarCartela ()
+            {
+                vetorB = GerarVetor(1,15)
+                console.log(vetorB)
+
+                vetorI = GerarVetor(16,30)
+                console.log(vetorI)
+
+                vetorN = GerarVetor(31,45)
+                console.log(vetorN)
+
+                vetorG = GerarVetor(46,60)
+                console.log(vetorG)
+
+                vetorO = GerarVetor(61,75)                            
+                console.log(vetorO)
+
+                for(var i = 0; i < 5; i++)
+            {
+                var td = document.getElementById("b"+(i+1))
+                td.innerText = vetorB[i]
+
+                var td = document.getElementById("i"+(i+1) )
+                td.innerText = vetorI[i]
+
+                var td = document.getElementById("n"+(i+1) )
+                td.innerText = vetorN[i]
+
+                var td = document.getElementById("g"+(i+1) )
+                td.innerText = vetorG[i]
+
+                var td = document.getElementById("o"+(i+1) )
+                td.innerText = vetorO[i]
+
+            }
+                
+            }
+        function GerarVetor (numeroInicial,numeroFinal)
+        {
+                vetor = []
+                for(var i = numeroInicial; i <= numeroFinal;  i++)
+                {
+                    vetor.push(i)
+                }
+                return vetor 
+        }
+
         function Piscar()
             {
-                var botao = document.getElementById("botao");
+                var botao = document.getElementById("botao"); /*chamar elemento que esta fora do script*/
                 if(botao.style.backgroundColor == 'blue')
                 {
                     botao.style.backgroundColor = 'red';
@@ -73,13 +121,13 @@
 
         function MarcarCartela(td)
         {
-            if(td.style.backgroundColor != '135,206,250')
+            if(td.style.backgroundColor != 'cornflowerblue')
             {
-                td.style.backgroundColor = '135,206,250';
-                td.style.color = '#F8F8FF';
+                td.style.backgroundColor = 'cornflowerblue';
+                td.style.color = 'white';
             }else{
                 td.style.backgroundColor = '';
-                td.style.color = '#135,206,250';
+                td.style.color = 'cornflowerblue';
             }
 
 
