@@ -145,6 +145,9 @@
             <td id="75">75</td>
         </tr>
     </table>
+    <div id="pao">
+        <h1>numeros sorteados</h1>
+    </div>
     <br />
     <button id="botao" onclick="GerarCartela()">
         Gerar cartela
@@ -157,12 +160,6 @@
 
     <script>
 
-        function GerarSorteio() {
-            vetorB = SorteioBingo(GerarSorteio(1, 15))
-            console.log(vetroB)
-
-            vetorI = Sorteio
-        }
         function GerarCartela() {
             vetorB = MisturarArray(GerarVetor(1, 15))
             console.log(vetorB)
@@ -206,24 +203,22 @@
             return vetor
         }
 
-        function Piscar() {
-            var botao = document.getElementById("botao"); /*chamar elemento que esta fora do script*/
-            if (botao.style.backgroundColor == 'blue') {
-                botao.style.backgroundColor = 'red';
-            } else {
-                botao.style.backgroundColor = 'blue';
-            }
-        }
 
         function MarcarCartela(td) {
             if (td.style.backgroundColor != 'cornflowerblue') {
                 td.style.backgroundColor = 'cornflowerblue';
                 td.style.color = 'white';
+                
             } else {
                 td.style.backgroundColor = '';
                 td.style.color = 'cornflowerblue';
             }
         }
+        var Sorteio = []
+        for (var i = 1 ; i <= 75; i++) {
+            Sorteio.push(i) 
+        }
+        Sorteio = MisturarArray(Sorteio)
 
         function NumeroAleatorio(numeroMinimo, numeroMaximo) { //declara numero minimo e maximo
             var retorno = Math.floor(Math.random() * numeroMaximo) //biblioteca de matematica dentro do java, floor aredonda o numero, radom gera aleatoriamente
@@ -235,6 +230,21 @@
                 return NumeroAleatorio(numeroMinimo, numeroMaximo)
             }
         }
+
+        function GerarSorteio(){
+            if (Sorteio.length == 0){
+                document.getElementById("pao").innerHTML = "<h1> Fim!!      </h1>"
+                return GerarSorteio()
+            }
+        var sorteado = Sorteio.shift()
+        document.getElementById("pao").innerHTML = "<h1> Numero: " + sorteado + "</h1>" 
+        var numeroSorteadoTabela = document.getElementById(sorteado)
+
+        if (numeroSorteadoTabela){
+            numeroSorteadoTabela.style.background="lightblue"
+        }
+        }
+
 
         function MisturarArray(array) {
             var aleatorio
