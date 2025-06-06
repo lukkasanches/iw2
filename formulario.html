@@ -37,17 +37,9 @@
             Enviar dados
         </button>
     </form>
+
+
     <script>
-        var endereco = {
-            'cep' : '17060380',
-            'rua' : 'olimpio petroni',
-            'numero' : '287',
-            'bairro' : 'bela vista',
-            'cidade' : 'bauru',
-            'estado' : 'SP'
-
-        }
-
         var cidade = document.getElementById("cidade")
         cidade.value = endereco.cidade
 
@@ -72,7 +64,7 @@
                 )
                 .catch(error => console.error('Erro:', error));
         }
-
+        
         function validarFormulario() {
             var cep = document.getElementById("cep")
             var endereco = document.getElementById("endereco")
